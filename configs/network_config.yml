@@ -1,0 +1,10 @@
+version: 2
+ethernets:
+  enp3s0:
+    dhcp4: true
+    #dhcp4: no
+    #addresses:
+    #  - 192.100.20.200/24
+    #gateway4: ""
+    #nameservers:
+      #addresses: []

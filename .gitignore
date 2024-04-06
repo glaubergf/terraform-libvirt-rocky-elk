@@ -1,0 +1,13 @@
+## CONFIG .gitignore
+
+## Diretórios local
+.terraform*
+notes*
+scripts*
+
+#actions-runner*
+
+## Arquivos local
+.terraform.lock.hcl
+plano_elk
+terraform.tfstate*

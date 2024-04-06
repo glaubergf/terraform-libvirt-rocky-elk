@@ -1,0 +1,53 @@
+#cloud-config
+# vim: syntax=yaml
+# examples:
+# https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+
+# Generic cloud or qcow
+# https://forums.rockylinux.org/t/generic-cloud-or-qcow/2446
+
+bootcmd:
+  - echo 192.168.0.1 gw.homedns.xyz >> /etc/hosts
+  - hostname tf-kvm-elk
+
+runcmd:
+  #- dnf --yes upgrade
+  #- dnf --yes install
+
+ssh_pwauth: true
+
+disable_root: false
+
+chpasswd:
+  list: |
+     root:1qaz
+     elk:elk123
+  expire: false
+
+users:
+  - name: elk
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin, wheel
+    home: /home/elk
+    shell: /bin/bash
+    lock_passwd: false
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC6U4PxC/KaLg2vjPXb/SFzVIpvzu6UPYAWA/9kAtWbjol2o3USU1ZlbltHbuwHHQKwbY3IQ4nkGj8L5cAvkaj/NLp8IkyABHvAunp+oNymb//ayqABw8QLIz5VZtsqatqMiR7sr9X0bAk+JJGDh1o0JNbglzBqmtBlf/WRk+an1HNPa0VTleSqvKI0ixh7Adq714AUV3lKxCfU/ry7Oa7Lzidtg9qnvtKsKiTxMuZmchiR6w17bjg1IKj6N9kit3rc4D4RkLm7A9kNjtsVW9iqcsq3eVCxiP9jWfWqzWnaGSX2HHLBNB5iiZgxKhwYQ6S8bN7VrQj9VKJ7XEGJdiaimIDk0ETX7tRu+7fywKPOWLFhEACpEGICPd3AfN1r8u68ilnKhpoUGVnMrN5SQSPJeClX7mSGF/1mAO2C0CUcfDj97QR8UhKd47l09pUzknO41F8hjUE604WuOoFdhBAk2yCFUFZZIJJBHBWCjEQLPDhxVdwSJS6IsUabk5TTI/8JJVO/HvH5YoB3ZHFR/G2miv13wOqsm4IvqYU1tJ4NhjtBGW0Q6lkOIsJjV0HU5Fhj2pcykdS27LL5+3oSH9rGrMoBY8vAcizoD7undoRMX2qLygypWdtwzSoqhN5y6L1R0CNGwmlCZy6W2FGCWZLRBzdT8lYfl4h/HoSIkoEH7Q== Debian Desktop access host tf-kvm-elk
+
+# packages:
+#  - ethstatus
+#  - s-tui
+#  - lm-sensors
+#  - neofetch
+#  - dnsutils
+#  - htop
+
+package_update: true
+
+package_upgrade: true
+
+#package_reboot_if_required: true
+
+timezone: America/Sao_Paulo
+
+final_message: "The system is finally up, after $UPTIME seconds"
