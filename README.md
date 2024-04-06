@@ -10,7 +10,7 @@ Data: 2024-04-06
 
 # Servidor Elastic Stack com Rocky Linux provisionado com KVM (libvirt)
 
-![Image](https://github.com/glaubergf/terraform-libvirt-rocky-elk/blob/main/images/server_tf-kvm-elk.jpg)
+![Image](https://github.com/glaubergf/terraform-libvirt-rocky-elk/blob/main/images/server_tf-kvm-elk.png)
 
 O **[Elastic Stack](https://www.elastic.co/pt/elastic-stack/)** (_também conhecido como ELK Stack_) é composto pelos seguintes produtos: _Elasticsearch_, _Kibana_, _Beats_ e _Logstash_. Com isso, podemos obter dados de maneira confiável e segura de qualquer fonte, em qualquer formato, depois, fazer buscas, análises e visualizações.
 
