@@ -18,6 +18,8 @@ Nesse projeto, será provisionado um servidor (_Máquina Virtual_) do **[Rocky L
 
 No momento que o servidor estiver sendo provisionada, será automatizado via **[Ansible](https://docs.ansible.com/ansible/latest/getting_started/index.html)** a instalação e configuração dos produtos do _Elastic Stack_ mencionado acima.
 
+Segue o link para o projeto **[ansible-elk](https://github.com/glaubergf/ansible-elk)** no GitHub.
+
 ## O Terraform
 
 Segue alguns aspectos sobre o projeto.
@@ -44,7 +46,7 @@ A configuração inclui:
 
     Recurso libvirt_domain: Define uma VM chamada "domain-rocky" com configurações específicas como memória, CPU, e interfaces de rede. A VM utiliza o disco de inicialização na nuvem criado anteriormente e define interfaces de console e gráficos.
 
-    Recurso null_resource: Define duas tarefas de provisionamento que são executadas após a criação da VM. A primeira tarefa configura um arquivo de swap na VM, enquanto a segunda copia um arquivo específico para a VM.
+    Recursos null_resource: Inclui provisionadores para configurar o swap na VM, copiar arquivos de configuração e executar playbooks do Ansible. Esses recursos são dependentes da criação da máquina virtual e dos provisionadores anteriores.
 
 * **variable.tf**
 
