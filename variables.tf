@@ -67,7 +67,7 @@ variable "vm_count" {
 variable "configs" {
   description = "List of files to copy"
   type        = list(string)
-  default     = ["motd_elk"]
+  default     = ["motd_elk", "config_motd.sh"]
 }
 
 variable "scripts" {
