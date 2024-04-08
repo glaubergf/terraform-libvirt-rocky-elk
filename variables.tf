@@ -30,12 +30,12 @@ variable "vm_vol_size" {
 
 variable "vm_memory" {
   description = "vm memory available"
-  default     = "4096"
+  default     = "6144"
 }
 
 variable "vm_cpu" {
   description = "vm cpus available"
-  default     = "4"
+  default     = "6"
 }
 
 variable "vm_ip" {
@@ -67,7 +67,7 @@ variable "vm_count" {
 variable "configs" {
   description = "List of files to copy"
   type        = list(string)
-  default     = ["motd_elk", "config_motd.sh"]
+  default     = ["motd_elk"]
 }
 
 variable "scripts" {
